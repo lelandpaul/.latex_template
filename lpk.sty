@@ -1,0 +1,130 @@
+\ProvidesPackage{lpk}
+
+
+
+%%%%% Layout %%%%%
+
+
+\frenchspacing
+
+%%%%% Fonts %%%%%
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures[lpk-charis]{
+	Extension = .ttf,
+	UprightFont = CharisSILR,
+	BoldFont = CharisSILB,
+	ItalicFont = CharisSILI,
+	BoldItalicFont = CharisSILBI,
+	}
+\newfontface\ipatype{CharisSIL}
+\usepackage[LatinExtendedB,Latin]{ucharclasses}
+\setTransitionsFor{LatinExtendedB}{
+	\fontspec{CharisSIL}[Scale=MatchUppercase]}{\rmfamily}
+
+
+
+%% Extra characters:
+
+\usepackage{pifont}
+\usepackage{upgreek}
+
+
+
+
+%%%%% Trees %%%%%
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{tikz-qtree-compat}
+\qtreeprimes
+\usepackage{pstricks}
+\usepackage{pst-xkey}
+\usepackage{pst-jtree}
+
+
+
+
+%%%%% Misc Packages %%%%%
+\usepackage{linguex}
+\usepackage{enumitem}
+\usepackage{subfig}
+\usepackage{units}
+\usepackage{subscript}
+\usepackage[normalem]{ulem}
+\usepackage{multicol}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage[super]{nth}
+% \usepackage[LGRgreek]{mathastext}
+\usepackage{mathrsfs}
+\usepackage{transparent}
+\usepackage{booktabs}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{tagging}
+\usepackage{arydshln}
+
+
+
+
+
+% Misc length definitions
+\setlength{\columnsep}{-7cm}
+\setlength{\parindent}{0pt}
+
+
+\newcommand{\thevenue}[1]{#1}
+\newcommand{\theacknowledgements}[1]{#1}
+
+% Title Formatting
+
+\makeatletter
+\def\@maketitle{%
+  %\titlefont
+  \textbf{\large \@title
+\footnote{\theacknowledgements}
+  }\\[0.25\baselineskip]
+  \@author~ \hfill
+\textsc{\thevenue \textbullet~ \@date} \\[-0.5\baselineskip]
+\hrule
+\vspace{0.25in}
+
+}
+\makeatother
+
+
+
+
+% Hyphenation
+
+\hyphenation{lin-ear-iz-ation Khoe-khoe FOFC-re-spec-ting}
+
+
+
+
+% Vaguely useful macros
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\decl}{\textsc{decl}}
+\newcommand{\obl}{\textsc{-a}}
+\newcommand{\tap}{\textsc{tap}}
+\newcommand{\pst}{\textsc{past}}
+\newcommand{\fut}{\textsc{fut}}
+\newcommand{\imp}{\textsc{impv}}
+\newcommand{\tama}{\textsc{neg.nf}}
+\newcommand{\ssm}{\textsc{=3sm}}
+\newcommand{\ssf}{\textsc{=3sm}}
+\newcommand{\ssn}{\textsc{=3sn}}
+\newcommand{\amp}{\textsc{and}}
+\newcommand{\stat}{\textsc{stat.pres}}
+\newcommand{\tph}{$\upvarphi$}
+\newcommand{\tpw}{$\upomega$}
+\newcommand{\tps}{$\upsigma$}
+\newcommand{\hf}{\textsc{HeadFinal}}
+\newcommand{\hfs}{\textsc{hf}}
+\newcommand{\hfa}{\textsc{HeadFinality}-$\upalpha$}
+\newcommand{\hfas}{\textsc{HF}-$\upalpha$}
+\newcommand{\ml}{\textsc{HeadInitial}}
+\newcommand{\mls}{\textsc{Antisym}}
+\newcommand{\contig}{\textsc{Contiguity}}
+\newcommand{\win}{$\rightarrow$}
