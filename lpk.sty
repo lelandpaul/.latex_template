@@ -97,6 +97,21 @@
 
 }
 \makeatother
+% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sc\normalsize}
+\subsectionfont{\it\normalsize}
+\makeatletter
+	\def\@seccntformat#1{\@ifundefined{#1@cntformat}
+		{\csname the#1\endcsname\quad}
+		{\csname #1@cntformat\endcsname}
+	}
+	\def\section@cntformat{\protect\makebox[0pt][r]{\thesection\quad}}
+	%\def\section@cntformat{\protect\makebox[0pt][r]{\thesubsection\quad}}
+	\def\subsection@cntformat{\protect\makebox[0pt][r]{\thesection.\quad}}
+	\def\subsection@cntformat{\protect\makebox[0pt][r]{\thesubsection\quad}}
+
+\makeatother
 
 
 
