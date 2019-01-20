@@ -1,33 +1,30 @@
 \ProvidesPackage{lpk}
 
 
-
 %%%%% Layout %%%%%
 \usepackage[top=1in,
 			left=1in,
-			bottom=1in,
-			right=1in,
-			textwidth=42em,
-			marginparwidth=10em,
-			marginparsep=2em]{geometry}
+			bottom=0.75in,
+			textwidth=36em,
+			marginparwidth=7em,
+			marginparsep=1em]{geometry}
+
+%%% marginnotes:
+
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\footnotesize\noindent}
+\renewcommand*{\marginnotevadjust}{-0.88\baselineskip}
+\renewcommand*{\raggedleftmarginnote}{\flushleft}
+% \renewcommand*{\raggedrightmarginnote}{}
+
+
+%%%%% Layout %%%%%
 
 
 \frenchspacing
 
-\usepackage{marginnote}
-\renewcommand*{\marginfont}{\small}
-%\renewcommand*{\raggedleftmarginnote}{}
-
-
 %%%%% Fonts %%%%%
 \usepackage[no-math]{fontspec}
-\defaultfontfeatures{
-	Scale=MatchLowercase,
-	Mapping=tex-text,
-	Numbers=OldStyle,
-	Ligatures={Common}
-	}
-\setmainfont[]{Garamond Premier Pro}
 \defaultfontfeatures[lpk-charis]{
 	Extension = .ttf,
 	UprightFont = CharisSILR,
@@ -54,7 +51,6 @@
 \usepackage{tikz}
 \usepackage{tikz-qtree}
 \usepackage{tikz-qtree-compat}
-\tikzset{every tree node/.style={align=center,anchor=north}}
 \qtreeprimes
 \usepackage{pstricks}
 \usepackage{pst-xkey}
@@ -100,30 +96,11 @@
 \makeatletter
 \def\@maketitle{%
   %\titlefont
-  \textbf{\large \@title
-\footnote{\theacknowledgements}
-  }\\[0.25\baselineskip]
-  \@author~ \hfill
-\textsc{\thevenue \textbullet~ \@date} \\[-0.5\baselineskip]
+	\textbf{\large \@title}\hfill{(as of \@date)} \\[-0.5\baselineskip]
 \hrule
 \vspace{0.25in}
 
 }
-\makeatother
-% SECTION TITLE APPEARANCE
-\usepackage{sectsty}
-\allsectionsfont{\sc\normalsize}
-\subsectionfont{\it\normalsize}
-\makeatletter
-	\def\@seccntformat#1{\@ifundefined{#1@cntformat}
-		{\csname the#1\endcsname\quad}
-		{\csname #1@cntformat\endcsname}
-	}
-	\def\section@cntformat{\protect\makebox[0pt][r]{\thesection\quad}}
-	%\def\section@cntformat{\protect\makebox[0pt][r]{\thesubsection\quad}}
-	\def\subsection@cntformat{\protect\makebox[0pt][r]{\thesection.\quad}}
-	\def\subsection@cntformat{\protect\makebox[0pt][r]{\thesubsection\quad}}
-
 \makeatother
 
 
@@ -146,6 +123,7 @@
 \newcommand{\pst}{\textsc{past}}
 \newcommand{\fut}{\textsc{fut}}
 \newcommand{\imp}{\textsc{impv}}
+\newcommand{\infv}{\textsc{inf-}}
 \newcommand{\tama}{\textsc{neg.nf}}
 \newcommand{\ssm}{\textsc{=3sm}}
 \newcommand{\ssf}{\textsc{=3sm}}
